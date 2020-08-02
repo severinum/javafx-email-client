@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="346.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.severinu.view.LoginWindowController">
+   <children>
+      <Button fx:id="btnLogin" layoutX="253.0" layoutY="228.0" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="26.0" prefWidth="146.0" text="Login" />
+      <Label layoutX="77.0" layoutY="102.0" text="Email address : " />
+      <Label layoutX="101.0" layoutY="140.0" text="Password : " />
+      <TextField fx:id="txtEmailAddress" layoutX="180.0" layoutY="98.0" prefHeight="26.0" prefWidth="332.0" />
+      <PasswordField fx:id="txtPassword" layoutX="180.0" layoutY="136.0" prefHeight="26.0" prefWidth="332.0" />
+      <Label fx:id="lblError" layoutX="180.0" layoutY="186.0" prefHeight="18.0" prefWidth="332.0" textFill="#ff2828" />
+   </children>
+</AnchorPane>
