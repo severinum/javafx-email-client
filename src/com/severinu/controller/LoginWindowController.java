@@ -1,13 +1,14 @@
 package com.severinu.controller;
 
-import javafx.event.ActionEvent;
+import com.severinu.EmailManager;
+import com.severinu.view.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class LoginWindowController {
+public class LoginWindowController extends BaseController {
 
     @FXML
     private Button btnLogin;
@@ -20,6 +21,10 @@ public class LoginWindowController {
 
     @FXML
     private Label lblError;
+
+    public LoginWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
+        super(emailManager, viewFactory, fxmlName);
+    }
 
     @FXML
     void loginButtonAction() {
