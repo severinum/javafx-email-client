@@ -1,4 +1,4 @@
-package com.severinu.view;
+package com.severinu.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
