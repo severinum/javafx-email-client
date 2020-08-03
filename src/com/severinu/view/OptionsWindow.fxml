@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="350.0" maxWidth="510.0" prefHeight="350.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -13,11 +12,7 @@
       <ChoiceBox fx:id="choiceBoXTheme" layoutX="66.0" layoutY="232.0" prefHeight="26.0" prefWidth="387.0" />
       <Label layoutX="66.0" layoutY="115.0" text="Font Size :" />
       <Label layoutX="66.0" layoutY="209.0" text="Theme :" />
-      <Label layoutX="66.0" layoutY="37.0" text="Application Options">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Label>
+      <Label layoutX="66.0" layoutY="37.0" styleClass="big" text="Application Options"  />
       <Button fx:id="btnApplyOptions" layoutX="370.0" layoutY="294.0" mnemonicParsing="false" onAction="#applyBtnAction" prefHeight="26.0" prefWidth="82.0" text="Apply" />
       <Button fx:id="btnCancelOptions" layoutX="277.0" layoutY="294.0" mnemonicParsing="false" onAction="#cancelBtnAction" prefHeight="26.0" prefWidth="82.0" text="Cancel" />
    </children>

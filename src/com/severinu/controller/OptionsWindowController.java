@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -36,12 +37,15 @@ public class OptionsWindowController extends BaseController implements Initializ
 
     @FXML
     void applyBtnAction() {
-
+        viewFactory.setColorTheme(choiceBoXTheme.getValue());
+        viewFactory.setFontSize(FontSize.values()[(int) (sliderFontSize.getValue())]);
+        viewFactory.updateStyles();
     }
 
     @FXML
     void cancelBtnAction() {
-
+        Stage stage = (Stage) sliderFontSize.getScene().getWindow();
+        viewFactory.closeStage(stage);
     }
 
     @Override
@@ -72,6 +76,9 @@ public class OptionsWindowController extends BaseController implements Initializ
                 return null;
             }
         });
+        sliderFontSize.valueProperty().addListener((obs, oldVal, newVal)->{
+            sliderFontSize.setValue(newVal.intValue());
+        } );
     }
 
     private void setUpThemePicker() {

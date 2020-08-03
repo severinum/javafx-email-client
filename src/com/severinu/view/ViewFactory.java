@@ -12,15 +12,19 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewFactory {
     private EmailManager emailManager;
+    private ArrayList<Stage> activeStages;
+
     // view options handling:
     private ColorTheme colorTheme = ColorTheme.DEFAULT;
-    private FontSize fontSize = FontSize.MEDIUM;
+    private FontSize fontSize = FontSize.SMALL;
 
     public ViewFactory(EmailManager emailManager) {
         this.emailManager = emailManager;
+        activeStages = new ArrayList<Stage>();
     }
 
     public ColorTheme getColorTheme() {
@@ -51,7 +55,7 @@ public class ViewFactory {
 
     public void showOptionsWindow(){
         BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
-        initializeStage(controller,"Application Options", true);
+        initializeStage(controller,"Application Options", false);
     }
 
     private void initializeStage(BaseController controller, String windowTitle, boolean showAsModal){
@@ -75,11 +79,22 @@ public class ViewFactory {
             stage.setResizable(false);
             stage.showAndWait();
         }
+        activeStages.add(stage); // keep track of open stages
 
     }
 
     public void closeStage(Stage stageToClose){
         stageToClose.close();
+        activeStages.remove(stageToClose); // remove closed stage from tracking list
     }
 
+    public void updateStyles() {
+        for(Stage stage: activeStages){
+            Scene scene = stage.getScene();
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
+
+        }
+    }
 }
